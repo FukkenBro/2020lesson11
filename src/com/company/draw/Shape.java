@@ -1,4 +1,4 @@
-package com.company.paint;
+package com.company.draw;
 
 public interface Shape {
     void draw();

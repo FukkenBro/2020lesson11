@@ -1,7 +1,7 @@
 package com.company;
 
-import com.company.paint.Board;
-import com.company.paint.DisplayDriver;
+import com.company.draw.Screen;
+import com.company.draw.DisplayDriver;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -19,7 +19,7 @@ public class Main extends Application {
     private boolean closed;
     private GraphicsContext gc;
 
-    private Board board;
+    private Screen board;
 
     public static void main(String[] args) {
         launch(args);
@@ -38,8 +38,8 @@ public class Main extends Application {
         gc = canvas.getGraphicsContext2D();
         new Thread(this::runMainGameLoopInThread).start();
 
-        DisplayDriver displayDriver = new DisplayDriverImpl(gc);
-        board = new Board(displayDriver);
+        DisplayDriver displayDriver = new Display(gc);
+        board = new Screen(displayDriver);
     }
 
     @Override
